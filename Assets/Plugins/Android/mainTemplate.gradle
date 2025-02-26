@@ -1,0 +1,87 @@
+apply plugin: 'com.android.library'
+**APPLY_PLUGINS**
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+        //dependencies节点下 
+
+    //基础包
+    implementation 'com.shenshi:ad-openset-sdk:6.4.2.2'
+
+    //tanx
+    implementation 'com.shenshi:ad-tanx-adapter:3.5.6.2'
+
+    //bz
+    implementation 'com.shenshi:ad-beizi-adapter:4.90.4.11.7'
+
+    //gdt
+    implementation 'com.shenshi:ad-guangdiantong-adapter:4.600.1470.1'
+
+    //ks-ad 只对接广告请使用
+    implementation 'com.shenshi:ad-kuaishou-ad-adapter:3.3.67.1.1'
+
+    //sigmob
+    implementation 'com.shenshi:ad-sigmob-adapter:4.19.4.1'
+
+    //gromore
+    implementation 'com.shenshi:ad-gromore-adapter:6.3.1.7.1'
+
+    //bd
+    implementation 'com.shenshi:ad-baidu-adapter:9.36.5'
+
+    //hl
+    implementation 'com.shenshi:ad-hailiang-adapter:3.466.10.432.2'
+
+    //zy
+    implementation 'com.shenshi:ad-zhangyu-adapter:1.6.1.1.1'
+
+    //multidex 64K问题，如果已添加请忽略
+    implementation 'com.android.support:multidex:1.0.3'
+
+    //微信小程序广告预算相关，引入可提升ecpm。强烈建议引入
+    /**
+    * 1，进入微信开放平台创建移动应用;
+    * 2，应用创建完成后，获取到相应的微信ApplD;
+    * 3.在移动端嵌入最新版OpenSDK，并确认版本为5.3.1及以上;
+    * 4.在优量汇开发者平台，将微信开放平台填写的AppID与当前应用进行关联;
+    * 第四步联系我们运营帮你们配置
+    */
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android:6.8.28'
+**DEPS**}
+
+android {
+    namespace "com.unity3d.player"
+    ndkPath "**NDKPATH**"
+    compileSdkVersion **APIVERSION**
+    buildToolsVersion '**BUILDTOOLS**'
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    defaultConfig {
+        minSdkVersion **MINSDKVERSION**
+        targetSdkVersion **TARGETSDKVERSION**
+        ndk {
+            abiFilters **ABIFILTERS**
+        }
+        versionCode **VERSIONCODE**
+        versionName '**VERSIONNAME**'
+        consumerProguardFiles 'proguard-unity.txt'**USER_PROGUARD**
+        multiDexEnabled true 
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    aaptOptions {
+        noCompress = **BUILTIN_NOCOMPRESS** + unityStreamingAssets.tokenize(', ')
+        ignoreAssetsPattern = "!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~"
+    }**PACKAGING_OPTIONS**
+}
+**IL_CPP_BUILD_SETUP**
+**SOURCE_BUILD_SETUP**
+**EXTERNAL_SOURCES**

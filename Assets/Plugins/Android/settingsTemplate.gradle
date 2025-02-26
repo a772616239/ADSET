@@ -1,0 +1,43 @@
+pluginManagement {
+    repositories {
+        **ARTIFACTORYREPOSITORY**
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+                // GroMore
+        maven { url "https://artifact.bytedance.com/repository/Volcengine/" }
+        maven { url "https://artifact.bytedance.com/repository/pangle" }
+        // 荣耀
+        maven { url 'https://developer.hihonor.com/repo' }
+        // adset
+        maven {
+            allowInsecureProtocol = true
+            url "http://maven.shenshiads.com/nexus/repository/adset/"
+        }
+    }
+}
+
+include ':launcher', ':unityLibrary'
+**INCLUDES**
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        **ARTIFACTORYREPOSITORY**
+        google()
+        mavenCentral()
+        flatDir {
+            dirs "${project(':unityLibrary').projectDir}/libs"
+        }
+                // GroMore
+        maven { url "https://artifact.bytedance.com/repository/Volcengine/" }
+        maven { url "https://artifact.bytedance.com/repository/pangle" }
+        // 荣耀
+        maven { url 'https://developer.hihonor.com/repo' }
+        // adset
+        maven {
+            allowInsecureProtocol = true
+            url "http://maven.shenshiads.com/nexus/repository/adset/"
+        }
+    }
+}
