@@ -52,12 +52,12 @@ public class AdSet : MonoBehaviour
     {
         public void OnError(string message)
         {
-            ShowToast("广告初始化失败->" + message);
+            Debug.Log("广告初始化失败->" + message);
         }
 
         public void OnSuccess()
         {
-            ShowToast("广告初始化成功");
+            Debug.Log("广告初始化成功");
         }
     }
 
@@ -112,7 +112,7 @@ public class AdSet : MonoBehaviour
 
         public void OnServiceResponse(int code)
         {
-            ShowToast("激励广告服务器调用成功->OnServiceResponse");
+            // ShowToast("激励广告服务器调用成功->OnServiceResponse");
         }
 
         public void OnShow(string key)
